@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+
+{% block js %}
+    <script>
+        function eliminarCuenta(id){
+            Swal.fire({
+                title: "DESEA ELIMINAR ESTA CUENTA",
+                confirmButtonText: "ELIMINAR",
+                showCancelButton: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/agregarCuentas/eliminarCuentas/" + id + "/"
+                }
+            });
+        }
+    </script>
+
+{% endblock %}
+
+
+<h1 style="text-align: center; margin-top: 60px;">LISTAS DE LISTA DE CUENTAS</h1>
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="table-container">
+        <table class="table" style="background-color: white;">
+            <thead>
+                <tr style="border-bottom: 1px solid #000000; text-align: center;">
+                    <th style="padding: 8px;">CORREO</th>
+                    <th style="padding: 8px;">CONTRASEÑA</th>
+                    <th style="padding: 8px;">FECHA CREADA</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for aux in entity %}
+                <tr style="text-align: center;">
+                    <td>{{ aux.correo }}</td>
+                    <td>{{ aux.contraseña }}</td>
+                    <td>{{ aux.fechaIngreso }}</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a href="{% url 'actualizarCuentas' aux.id %}">
+                                <button class="btn btn-warning">
+                                    <i class="fas fa-edit"></i> Modificar
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" onclick="eliminarCuenta('{{ aux.id }}')">
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            {% include 'core/paginator.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}

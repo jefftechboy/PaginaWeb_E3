@@ -1,0 +1,209 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+    {% block js %}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script>
+            function eliminarCompra(id){
+                Swal.fire({
+                    title: "¿ DESEA ELIMINAR ESTE PRODUCTO ?",
+                    confirmButtonText: "ELIMINAR",
+                    showCancelButton: true,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/agregarCompra/eliminarCompra/" + id + "/";
+                    }
+                });
+            }
+
+            function mostrarImagen(url) {
+                $('#imageModal .modal-body img').attr('src', url);
+                $('#imageModal').modal('show');
+            }
+
+            function checkMinValue(input, codigo) {
+                var valor = parseInt(input.value);
+                if (valor < 1) {
+                    input.value = 1;
+                }
+                updateTotal(codigo);
+                updateSubtotal();
+                updateTotalAmount();
+            }
+
+            function updateTotal(codigo) {
+                var quantity = parseInt(document.getElementById('quantity-' + codigo).value);
+                var precio = parseFloat(document.getElementById('precio-' + codigo).innerText);
+                var total = quantity * precio;
+                document.getElementById('total-' + codigo).innerText = total.toFixed(2).replace(/\.00$/, '');
+            }
+
+            function updateSubtotal() {
+                var subtotal = 0;
+                document.querySelectorAll('[id^="total-"]').forEach(function(element) {
+                    subtotal += parseFloat(element.innerText);
+                });
+                document.getElementById('subtotal').innerText = subtotal.toFixed(2).replace(/\.00$/, '');
+            }
+
+            function updateTotalAmount() {
+                var subtotal = parseFloat(document.getElementById('subtotal').innerText);
+                var totalAmount = subtotal;
+                document.getElementById('total').innerText = totalAmount.toFixed(2).replace(/\.00$/, '');
+            }
+
+            function updateQuantity(codigo, increment) {
+                var input = document.getElementById('quantity-' + codigo);
+                var newValue = parseInt(input.value) + increment;
+                
+                if (newValue < 1) {
+                    newValue = 1;
+                }
+                
+                input.value = newValue;
+                updateTotal(codigo);
+                updateSubtotal();
+                updateTotalAmount();
+            }
+        </script>
+    {% endblock %}
+    
+    <!-- Cart Page Start -->
+    <div class="container-fluid py-5" style="background-color: rgb(252, 253, 249); width: 1300px; margin-top: 80px; margin-bottom: 40px;">
+        <h1 style="text-align: center; margin-bottom: 20px;">Carrito</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aux in obras %}
+                        {% for as in compras %}
+                            {% if aux.codigo == as.Obra %}
+                                <tr>
+                                    <td>
+                                        <button class="btn" style="background-color: white;" onclick="mostrarImagen('{% get_media_prefix %}{{ aux.imagen }}')">
+                                            <img src="{% get_media_prefix %}{{ aux.imagen }}" style="width: 50px; border-radius: 10%;">
+                                        </button>
+                                    </td>
+                                    <td>{{ aux.nombre }}</td>
+                                    <td id="precio-{{ aux.codigo }}">{{ aux.precio }}</td>
+                                    <td>
+                                        <div class="input-group quantity" style="max-width: 100px;">
+                                            <input type="number" class="form-control form-control-sm text-center border-0" value="1" onchange="checkMinValue(this, '{{ aux.codigo }}')" id="quantity-{{ aux.codigo }}">
+                                        </div>
+                                    </td>
+                                    <td id="total-{{ aux.codigo }}">{{ aux.precio }}</td>
+                                    <td>
+                                        <a href="#" onclick="eliminarCompra('{{ as.id }}')">
+                                            <button class="btn btn-danger">
+                                                <i class="fas fa-trash-alt"></i> Eliminar
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="row g-4 justify-content-end">
+            <div class="col-8"></div>
+            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4" style="background-color: coral;">
+                <div class="bg-light rounded">
+                    <div class="p-4" style="background-color: burlywood;">
+                        <h1 class="display-6 mb-4">Compra <span class="fw-normal">Total</span></h1>
+                        <div class="d-flex justify-content-between mb-4">
+                            <h5 class="mb-0 me-4">Subtotal:</h5>
+                            <p id="subtotal" class="mb-0">$0.00</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-0 me-4">Envío</h5>
+                            <div style="background-color: burlywood;">
+                                <p class="mb-0">Retiro en tienda gratis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between" style="background-color: burlywood;">
+                        <h5 class="mb-0 ps-4 me-4">Total</h5>
+                        <p id="total" class="mb-0 pe-4">$0.00</p>
+                    </div>
+                    <div class="text-center">
+                        <div id="paypal-button"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cart Page End -->
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+        paypal.Button.render({
+            env: 'sandbox',
+            client: {
+                sandbox: 'sandbox_client_id',
+                production: 'production_client_id'
+            },
+            locale: 'en_US',
+            style: {
+                size: 'medium',
+                color: 'white',
+                shape: 'pill',
+            },
+            commit: true,
+            payment: function (data, actions) {
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: '10.00',
+                            currency: 'USD'
+                        }
+                    }]
+                });
+            },
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
+                    window.alert('Thank you for your purchase!');
+                });
+            }
+        }, '#paypal-button');
+    </script>
+
+    <!-- Modal para mostrar la imagen -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="" alt="Imagen" style="max-width: 100%; max-height: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript adicional para calcular y mostrar el subtotal al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calcular el subtotal inicial
+            var subtotal = 0;
+            document.querySelectorAll('[id^="total-"]').forEach(function(element) {
+                subtotal += parseFloat(element.innerText);
+            });
+            document.getElementById('subtotal').innerText = subtotal.toFixed(2).replace(/\.00$/, '');
+
+            // Actualizar el total inicial
+            var totalAmount = subtotal;
+            document.getElementById('total').innerText = totalAmount.toFixed(2).replace(/\.00$/, '');
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+django 
+pillow
+psycopg2-binary
+crispy-bootstrap4
+djangorestframework
+django-request
+zeep
+django-admin-confirm
+django-axes
+django-simple-captcha
+django-recaptcha
+whitenoise
+cloudinary
+# pip install -r requirements.txt

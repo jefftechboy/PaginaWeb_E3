@@ -1,0 +1,254 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+<H1 style="margin-bottom: 20px; text-align: center;margin-top: 100px; color: white;">ADMINISTRACIÓN</H1>
+<div class="container" style="color: rgb(255, 255, 255); text-align: left; border: 5px solid #252424; border-radius: 10px; padding: 20px; margin-bottom: 30px;">
+    <!--
+    
+    <div class="row" >
+        <div class="col-4">
+                <strong>USUARIOS</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success">
+                <a href="{% url 'listado' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success">
+                <a href="{% url 'ad' %}" style="text-decoration: none;color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-4">
+               <strong>TIPO USUARIO</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoTipoUsuario' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4 ">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarTipoUsuario' %}" style="text-decoration: none;color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    -->
+    <!-- Tipo OBRA -->
+    <div class="row">
+        <div class="col-4">
+               <strong>TIPO OBRA</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoTipoObra' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarTipoObra' %}" style="text-decoration: none;color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!-- OBRAS -->
+    <div class="row">
+        <div class="col-4">
+                <strong>OBRA</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoObras' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <!--
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarObras' %}" style="text-decoration: none;color: white;">
+                    AGREGAR
+                </a>
+            </button>
+            -->
+        </div>
+    </div>
+    <!--  CUENTA 
+    <div class="row">
+        <div class="col-4">
+                <strong>CUENTAS</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoCuentas' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarCuentas' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    -->
+    <!--  TIPO ESTADO SOLICITUD -->
+    <div class="row">
+        <div class="col-4">
+                <strong>TIPO SOLICITUD</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoSolicitudObra' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarSolicitudObra' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!--  COMUNA -->
+    <div class="row">
+        <div class="col-4">
+                <strong>COMUNA</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoComuna' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarComuna' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!--  REGION -->
+    <div class="row">
+        <div class="col-4">
+                <strong>REGION</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoRegion' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarRegion' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!--  COMPRA -->
+    <div class="row">
+        <div class="col-4">
+                <strong>COMPRAS</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoCompra' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarCompra' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!--  Tipo CUENTAS BANCARIAS -->
+    <div class="row">
+        <div class="col-4">
+                <strong>CUENTAS BANCARIAS</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoTipoCuentas' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarTipoCuentas' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!--  TIPO BANCOS -->
+    <div class="row">
+        <div class="col-4">
+                <strong>BANCOS</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'listadoTipoBanco' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarTipoBanco' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+    <!--  DATOS COOPERATIVOS -->
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col-4">
+                <strong>DATOS COOPERATIVOS</strong>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'DatosCuentaCooperativo' %}" style="text-decoration: none; color: white;">
+                    LISTADO
+                </a>
+            </button>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" >
+                <a href="{% url 'agregarDatosCooperativos' %}" style="text-decoration: none; color: white;">
+                    AGREGAR
+                </a>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

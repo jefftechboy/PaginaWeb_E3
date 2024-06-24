@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+
+
+
+
+<h1 style="text-align: center;margin-top: 60px;">LISTADO TIPOS DE USUARIOS</h1>
+<div class="container-fluid" style="margin-top: 50px; color: white; margin-bottom: 50px;">
+    <div class="row" style="text-align: center; margin-bottom: 30px;">
+        <div class="col-4">
+            Descripcion
+        </div>
+        <div class="col-8" style="text-align: center;" >
+            <p style="padding-left: 100px;">ADMINISTRACION</p>
+        </div>
+    </div>
+    {% for aux in lista %}
+    <div class="row" style="text-align: center;">
+        <div class="col-4">
+            {{ aux.descripcion }}
+        </div>
+        <div class="col-8" style="padding-left: 90px;">
+            <button class="btn btn-warning">
+                <a href="{% url 'actualizarAutentificacionCuenta' aux.id %}"  style="color: white;">MODIFICAR</a>
+            </button>
+            <button class="btn btn-danger" style="margin-left: 90px;">
+                <a href="{% url 'eliminarAutentificacionCuenta' aux.id %}"  style="color: white;">ELIMINAR</a>
+            </button>
+        </div>
+    </div>
+
+    <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

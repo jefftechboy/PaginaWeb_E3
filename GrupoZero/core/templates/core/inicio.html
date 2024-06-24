@@ -1,0 +1,625 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+<!-- TOP SEMANA TITULO -->
+<h3 style="text-align: center;margin-bottom: 10px;color: rgb(255, 255, 255);margin-top: 60px;font-weight: bold;font-size: 60px;">BIENVENIDO A GRUPO ZERO</h3>
+<!-- TOP SEMANA TITULO -->
+<h3 style="text-align: center;margin-bottom: 10px;color: rgb(255, 255, 255);margin-top: 40px;"> TOP 8 DEL  MES</h3>
+	<!-- TOP SEMANA CARUSEL -->
+	<div class="containerCarusel" style="padding-top: 10px;">
+		<!-- IMAGEN 1-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background: linear-gradient(0deg, rgba(159, 124, 84, 0.676) 0%, rgba(100, 87, 87, 0) 30%); text-decoration: none;">
+				<h2 style="color: white;font-size: 30px;">Codisia</h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 2-->
+		<div>
+			<a class="content" style="background: linear-gradient(0deg, rgba(159, 124, 84, 0.676) 0%, rgba(100, 87, 87, 0) 30%); text-decoration: none;">
+				<h2 style="color: rgb(255, 255, 255);font-size: 25px;">PLATA</h2>
+				<span style="color: rgb(255, 255, 255);">Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 3-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background: linear-gradient(0deg, rgba(61, 48, 28, 0.676) 0%, rgba(190, 177, 133, 0) 30%); text-decoration: none;">
+				<h2 style="color: white;font-size: 24px;">REZO </h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 4-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background:  linear-gradient(0deg, rgba(0, 0, 0, 0.676) 0%, rgba(0, 0, 0, 0) 30%); text-decoration: none;">
+				<h2 style="color: white;font-size: 30px;">REINA ROJA</h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 5-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.676) 0%, rgba(165, 64, 64, 0) 30%); text-decoration: none;">
+				<h2 style="color: white;font-size: 30px;">RESCATE</h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 6-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background: linear-gradient(0deg, rgba(164, 93, 93, 0.676) 0%, rgba(255, 0, 0, 0) 30%); text-decoration: none;">
+				<h2 style="color: white; font-size: 30px;">EXPIACION</h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 7-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background: linear-gradient(0deg, rgba(112, 112, 76, 0.676) 0%, rgba(0, 0, 0, 0) 30%); text-decoration: none;">
+				<h2 style="color: white;font-size: 30px;"> SOLAR</h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+		<!-- IMAGEN 8-->
+		<div>
+			<a href="{% url 'informacionCompra' %}" class="content" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.676) 0%, rgba(0, 0, 0, 0) 30%); text-decoration: none;">
+				<h2 style="color: white;font-size: 30px;"> ESPEJO</h2>
+				<span>Mary Diaz</span>
+			</a>
+		</div>
+
+
+	</div>
+	
+
+	
+	<!-- VALORES DEL  TOP 8-->
+	<div class="container-fluid fruite py-5">
+
+		<!--CONTENEDOR-->
+		<div class="container py-5">
+			<div class="tab-class text-center">
+
+				<!-- FILTROS -->
+				<div class="row g-4" >
+					<!-- TITULO CATEGORIA TOP 8-->
+					<div class="col-lg-4 text-start">
+						<h1 style="color: white;">Productos top 8</h1>
+					</div>
+					<!-- NAVEGADOR POR CATEGORIA-->
+					<div class="col-lg-8 text-end">
+						<ul class="nav nav-pills d-inline-flex text-center mb-5">
+							<li class="nav-item">
+								<a style="text-decoration: none;" class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+									<span class="text-black" style="width: 130px;"><strong>Todos</strong></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a style="text-decoration: none;"class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+									<span class="text-black" style="width: 130px;"><strong>Maria Lopez</strong></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a style="text-decoration: none;"class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+									<span class="text-black" style="width: 130px;"><strong>Jorge Alzamo</strong></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a style="text-decoration: none;"class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
+									<span class="text-black" style="width: 130px;"><strong>Nicolas Tapia</strong> </span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a style="text-decoration: none;"class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
+									<span class="text-black" style="width: 140px;"><strong>Vicente Visantio</strong> </span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- PRODUCTOS TOP 8-->
+				<div class="tab-content">
+
+					
+					<!--PRODUCTOS FILTRO TODOS-->
+					<div id="tab-1" class="tab-pane fade show p-0 active">
+						<div class="row g-4">
+							<div class="col-lg-12">
+								<!--TARJETAS FILTRO MARIA LOPEZ-->
+								<div class="row g-4">
+									<!-- PRIMERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/reina-roja.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Jorge Alzalmo</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Reina Roja</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Jorge Alzalmo</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong> </p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- SEGUNDA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/white-twinks.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Maria Lopez</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>White Twinks</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- TERCERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/ReyCodisioso.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Vicente visantio</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Rey Codisioso</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Vicente Visantio</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- CUARTA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/reso.calle.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Maria Lopez</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Rezo Calle</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- QUINTA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/punta-negra.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Nicolas Tapia</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Punta Negra</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Nicolas Tapia</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- SEXTA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/paso.blanco.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Jorge Alzalmo</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Paso Blanco</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Jorge Alzalmo</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- SEPTIMA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/mascara.dorada.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Vicente visantio</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Mascara Dorada</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Vicente visantio</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- OCTAVA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/mascara-boica.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Vicente visantio</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;"><strong>Mascara Boica</strong></h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Vicente visantio</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!--PRODUCTOS FILTRO MARIA LOPEZ-->
+					<div id="tab-2" class="tab-pane fade show p-0">
+						<div class="row g-4">
+							<div class="col-lg-12">
+								<!--TARJETAS FILTRO MARIA LOPEZ-->
+								<div class="row g-4">
+									<!-- PRIMERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src= "{% static 'core/img/FotosGaleria/white-twinks.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Maria Lopez</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- SEGUNDA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/white-twinks.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Maria Lopez</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!--PRODUCTOS FILTRO JORGE ALZALMO-->
+					<div id="tab-3" class="tab-pane fade show p-0">
+						<div class="row g-4">
+							<div class="col-lg-12">
+								<!--TARJETAS FILTRO JORGE ALZALMO-->
+								<div class="row g-4">
+									<!-- PRIMERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/reina-roja.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Jorge Alzalmo</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- SEGUNDA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/reina-roja.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Jorge Alzalmo</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!--PRODUCTOS FILTRO NICOLAS TAPIA-->
+					<div id="tab-4" class="tab-pane fade show p-0">
+						<div class="row g-4">
+							<div class="col-lg-12">
+								<!--TARJETAS FILTRO NICOLAS TAPIA-->
+								<div class="row g-4">
+									<!-- PRIMERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/punta-negra.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Nicolas Tapia</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!--PRODUCTOS FILTRO VICENTE VISANTIO -->
+					<div id="tab-5" class="tab-pane fade show p-0">
+						<div class="row g-4">
+							<div class="col-lg-12">
+								<!--TARJETAS FILTRO VICENTE VISANTIO-->
+								<div class="row g-4">
+									<!-- PRIMERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/mascara-boica.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Vicente Visantio</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- SEGUNDA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/mascara-boica.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Vicente Visantio</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+									<!-- TERCERA TARJETA -->
+									<div class="col-md-6 col-lg-4 col-xl-3">
+										<div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+											<!-- IMAGEN -->
+											<div>
+												<img src="{% static 'core/img/FotosGaleria/mascara-boica.jpg' %}" class="img-fluid" alt="" style="width: 200px; object-fit: scale-down; height: 350px;margin-top: 25px;" >
+											<!-- ETIQUETA ARTISTA -->
+											<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Vicente Visantio</div>
+											<!-- CUERPO TARJETA-->
+											<div class="p-4 border  border-top-0 rounded-bottom">
+												<!-- CUERPO TITULO-->												
+												<h4 style="color: black;">REZO</h4>
+												<!-- CUERPO TEXTO-->												
+												<p>Maria Lopez</p>
+												<!-- CUERPO PRECIO Y CARRITO-->												
+												<div class="d-flex justify-content-between flex-lg-wrap">
+													<!-- CUERPO PRECIO-->												
+													<p class="fs-5  mb-0" style="color: black; margin-top: 3px;"><strong>$100.000</strong></p> 
+													<!-- CUERPO AÑADIR CARRITO-->												
+													<a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>      
+		</div>
+		
+	</div>
+	
+	
+	<!-- %  EMPRESA -->
+	<div class="container-fluid py-5 " style="padding-bottom: 0%;">
+		<h1 style="text-align: center; color: white;"> SERVICIO DE ALTA CALIDAD</h1>
+		<div class="container" style="margin-bottom: 0%;">
+			<div class="bg-light p-5 rounded">
+				<div class="row g-4 justify-content-center">
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="counter bg-white rounded p-5">
+							<i class="fa fa-users text-secondary"></i>
+							<h4 style="color: blueviolet;">Nuestros Clientes</h4>
+							<h1>1302</h1>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="counter bg-white rounded p-5">
+							<i class="fa fa-users text-secondary"></i>
+							<h4 style="color: blueviolet;">Calidad de servicio</h4>
+							<h1>99%</h1>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="counter bg-white rounded p-5">
+							<i class="fa fa-users text-secondary"></i>
+							<h4 style="color: blueviolet;">Certificados</h4>
+							<h1>33</h1>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="counter bg-white rounded p-5">
+							<i class="fa fa-users text-secondary"></i>
+							<h4 style="color: blueviolet;">Productos disponibles</h4>
+							<h1>+1000</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

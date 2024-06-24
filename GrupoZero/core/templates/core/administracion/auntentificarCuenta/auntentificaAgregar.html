@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+<h1 style="margin-top: 100px; text-align: center;">INGRESAR Usuario</h1>
+
+<div class="row" style="margin-top: 100px;padding-bottom: 55%;">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body" style="background-color: white;">
+                <h2 style="text-align: center; margin-bottom: 60px;">INGRESAR USUARIO</h2>
+                <form action="" method="post" >
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="d-flex justify-content-end">
+                        <input type="reset" value="CANCELAR" class="btn btn-secondary">
+                        &nbsp;
+                        <button type="submit" id="btnEnviar" class="btn btn-primary">ENVIAR</button>
+                    </div>
+                </form>
+                {{ msj }}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

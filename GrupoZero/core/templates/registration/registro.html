@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+<div class="container-login">
+    <div class="cover">
+        <img src="{% static 'core/img/FotosGaleria/loginImagenFinal.jpg' %}" alt="">
+    </div>
+    <div class="forms">
+        <div class="form-content">
+            <div class="signup-form">
+            <div class="title">Crear cuenta</div>
+            <form action="#" method="POST" style="margin-top: 15px;">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="button">
+                    <input type="submit" value="CREAR CUENTA">
+                </div>
+                <div class="text sign-up-text">¿Ya tienes cuenta? 
+                       <a href="{% url 'login' %}">Ingresa</a>
+                </div>
+                </div>
+        </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

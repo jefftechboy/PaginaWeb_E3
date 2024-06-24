@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+{% block js %}
+    <script>
+        function eliminarDato(id){
+            Swal.fire({
+                title: "¿ DESEA ELIMINAR ESTA INFORMACION DE COOPERATIVO ?",
+                confirmButtonText: "ELIMINAR",
+                showCancelButton: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/agregarDatosCooperativos/eliminarDatosCooperativos/" + id + "/"
+                }
+            });
+        }
+
+        function mostrarImagen(url) {
+            $('#imageModal .modal-body img').attr('src', url);
+            $('#imageModal').modal('show');
+        }
+    </script>
+{% endblock %}
+
+<h1 style="text-align: center; margin-top: 60px;">Administración</h1>
+<div class="container-fluid" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="table-container">
+        <table class="table" style="background-color: white;">
+            <thead>
+                <tr style="border-bottom: 1px solid #000000;">
+                    <th style="padding: 8px; text-align: center; vertical-align: middle;">NombreCliente</th>
+                    <th style="padding: 8px; text-align: center; vertical-align: middle;">NombreCuentaCooperativo</th>
+                    <th style="padding: 8px; text-align: center; vertical-align: middle;">Correo</th>
+                    <th style="padding: 8px; text-align: center; vertical-align: middle;">Direccion</th>
+                    <th style="padding: 8px; text-align: center; vertical-align: middle;">Telefono</th>
+                    <th colspan="2" style="padding: 8px; text-align: center; vertical-align: middle;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aux in entity %}
+                <tr style="text-align: center;">
+                    <td style="vertical-align: middle;">{{ aux.NombreCliente }}</td>
+                    <td style="vertical-align: middle;">{{ aux.NombreCuentaCooperativo }}</td>
+                    <td style="vertical-align: middle;">{{ aux.Correo }}</td>
+                    <td style="vertical-align: middle;">{{ aux.Direccion }}</td>
+                    <td style="vertical-align: middle;">{{ aux.Telefono }}</td>
+                    <td style="vertical-align: middle;">
+                        <button class="btn btn-info" onclick="mostrarImagen('{% get_media_prefix %}{{ aux.imagenCooperativo }}')">
+                            Ver Imagen
+                        </button>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <div class="d-flex justify-content-center">
+                            <a href="{% url 'actualizarDatosCooperativos' aux.id %}">
+                                <button class="btn btn-warning">
+                                    <i class="fas fa-edit"></i> Modificar
+                                </button>
+                            </a>
+                            <a href="#" onclick="eliminarDato('{{ aux.id }}')">
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            {% include 'core/paginator.html' %}
+        </div>
+    </div>
+</div>
+
+<!-- Modal para mostrar la imagen -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="" alt="Imagen" style="max-width: 100%; max-height: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+
+{% block js %}
+    <script>
+        function AgregarCompra(form){
+            event.preventDefault();
+                Swal.fire({
+                title: '¿ DESEA AGREGAR ESTA COMPRA ?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Si',
+                cancelButtonText: "No",
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.value) {
+                form.submit();
+                }
+                return false;
+            })
+            }
+    </script>
+{% endblock %}
+
+
+    <div class="container-fluid fruite py-5">
+        <div class="container py-5">
+            <h1 style="text-align: center;color: white;">TIENDA</h1>
+            <!--FILA FILTRO + OBRAS-->
+            <div class="row">
+                <!--FILA FILTRO -->
+                <div class="col-lg-3">
+                    <div class="row g-4">
+                        <div class="input-group w-100 mx-auto d-flex" style="margin-bottom: 8px;">
+                            <input type="search" class="form-control p-3" placeholder="Buscar" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                        <div class="col-lg-12">
+                            <div style="color: aliceblue;" class="mb-3">
+                                <h4 style="color: white;">Categorias</h4>
+                                <ul class="list-unstyled fruite-categorie">
+                                    <li>
+                                        <div class="d-flex justify-content-between fruite-name">
+                                            <a href="#">Inteligencia artificial</a>
+                                            <span>(3)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-between fruite-name">
+                                            <a href="#">Lapiz</a>
+                                            <span>(5)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-between fruite-name">
+                                            <a href="#">Computacional</a>
+                                            <span>(2)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-between fruite-name">
+                                            <a href="#">Pincel</a>
+                                            <span>(8)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-between fruite-name">
+                                            <a href="#">Modelo 3D</a>
+                                            <span>(5)</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <h4 class="mb-2" style="color: white;">PRECIO</h4>
+                                <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput" min="0" max="500" value="0" oninput="amount.value=rangeInput.value">
+                                <output style="color: white;" id="amount" name="amount" min-value="0" max-value="500" for="rangeInput">0</output>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div style="color: aliceblue;" class="mb-3">
+                                <h4 style="color: white;">Estilos</h4>
+                                <div class="mb-2">
+                                    <input type="radio" class="me-2" id="Categories-1" name="Categories-1" value="Beverages">
+                                    <label for="Categories-1"> Anime</label>
+                                </div>
+                                <div class="mb-2">
+                                    <input type="radio" class="me-2" id="Categories-2" name="Categories-1" value="Beverages">
+                                    <label for="Categories-2"> Dark</label>
+                                </div>
+                                <div class="mb-2">
+                                    <input type="radio" class="me-2" id="Categories-3" name="Categories-1" value="Beverages">
+                                    <label for="Categories-3"> Cute</label>
+                                </div>
+                                <div class="mb-2">
+                                    <input type="radio" class="me-2" id="Categories-4" name="Categories-1" value="Beverages">
+                                    <label for="Categories-4"> Alternativo</label>
+                                </div>
+                                <div class="mb-2">
+                                    <input type="radio" class="me-2" id="Categories-5" name="Categories-1" value="Beverages">
+                                    <label for="Categories-5"> Peliculas</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--FILA OBRAS-->
+                <div class="col-lg-9">
+                    <div class="row g-4 justify-content-center">
+                        {% for aux in entity %}
+                        <!-- PRIMERA TARJETA -->
+                        <div class="col-md-6 col-lg-4 col-xl-3 custom-card" style="max-width: 300px;">
+                            <div class="rounded position-relative fruite-item" style="background-color: rgb(255, 255, 255);">
+                                <!-- IMAGEN -->
+                                <div>
+                                    <a href="{% url 'detalleObra' aux.id %}">
+                                        <img  src="{% get_media_prefix %}{{ aux.imagen }}" class="custom-image" style="width: 100%;
+                                        height: auto;
+                                        max-height: 375px;">
+                                    </a>
+                                </div>
+                                <!-- ETIQUETA ARTISTA -->
+                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 0.1px; left: 1px; margin-left: 0px;margin-top: 1px;font-size: 8px;">{{ aux.NombreUsuario }}</div>
+                                <!-- CUERPO TARJETA-->
+                                <div class="p-4 border border-top-0 rounded-bottom">
+                                    <!-- CUERPO TITULO-->												
+                                    <h4 style="color: black; text-align: center;">{{ aux.nombre }}</h4>
+                                    <!-- CUERPO TEXTO-->												
+                                    <!-- CUERPO PRECIO Y CARRITO-->												
+                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                        <!-- CUERPO PRECIO-->												
+                                        <p class="fs-5 mb-0" style="color: black; margin-top: 3px; padding-left: 45px; padding-bottom: 12px;text-align: center;">${{ aux.precio }}</p> 
+                                        <!-- CUERPO AÑADIR CARRITO-->												
+                                        <form action="" method="post" onsubmit="AgregarCompra(this)" >
+                                            {% csrf_token %}
+                                            <input type="hidden" name="{{ form.Usuario.name }}" value="{{ user.username }}" />                                              
+                                            <input type="hidden" name="{{ form.Obra.name }}" value="{{ aux.codigo }}" />
+                                            <input type="hidden" name="{{ form.estadoCompra.name }}" value="Carrito" />                                             
+                                            <div class="d-flex justify-content-end">
+                                                <button type="submit" id="btnEnviar" class="btn btn-primary">COMPRAR</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-12">
+                            {% include 'core/paginator.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

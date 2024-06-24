@@ -1,0 +1,149 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+
+{% block js %}
+<script>
+    function agregarautentificacion(form) {
+        event.preventDefault();
+        Swal.fire({
+            title: '¿Seguro de confirmar tu cuenta?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí',
+            cancelButtonText: "No",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.value) {
+                form.submit();
+            }
+            return false;
+        });
+    }
+</script>
+{% endblock %}
+
+<!-- Estilos adicionales para mejorar la apariencia -->
+
+
+
+
+
+<div class="container-fluid" style="margin-top: 60px; background-color: aliceblue; padding-bottom: 50px;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="info-cliente-box text-center">
+                <h2 class="mb-4">Información Personal</h2>
+                <div class="profile-image">
+                    {% for cuenta in cuentasAutentificadas %}
+                        {% if cuenta.NombreCliente == user.username %} 
+                            <img src="{% get_media_prefix %}{{ cuenta.imagenAutentificacion }}" style="height: 100px;width: 100px; margin-bottom: 10px;">
+                        {% endif %}
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+                        {% for group in user.groups.all %}
+                            {% if group.name == 'ClientesNoAutentificados' %}
+                                <img src="{% static 'core/img/FotosGaleria/ClienteGenerico.jpg' %}" style="height: 100px;width: 100px; margin-bottom: 10px;">
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                        
+                        </div>
+                <div class="profile-details">
+                    {% for cuenta in cuentasAutentificadas %}
+                        {% if cuenta.NombreCliente == user.username %} 
+                            <p><strong>Nombre:</strong> {{ user.username }}</p>
+                            <p><strong>Correo Electrónico:</strong> {{ cuenta.Correo }}</p>
+                            <p><strong>Número de Teléfono:</strong> {{ cuenta.Telefono }}</p>
+                            <p><strong>Dirección:</strong> {{ cuenta.Direccion }}</p>                            
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <h2 style="color: black;">Historial de Compras Realizadas</h2>
+                <table class="table table-striped table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="producto-img mr-3">
+                                        <img src="{% static 'core/img/FotosGaleria/reina-roja.jpg' %}"  width="100px" alt="Producto">
+                                    </div>
+                                    <div>
+                                        <strong>Reina Roja</strong> <br>
+                                        Jorge Anzalmo
+                                    </div>
+                                </div>
+                            </td>
+                            <td><strong>1</strong></td>
+                            <td><strong>$100.000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="max-width: 1000px; margin-bottom: 200px;">
+        <div class="col-md-6 offset-md-3" style="margin-left: 0%;">
+            {% if user.is_authenticated %}
+                    {% for group in user.groups.all %}
+                        {% if group.name == 'ClientesNoAutentificados' %}
+                        <h2 class="mb-4 text-center">Autentificar Cuenta</h2>
+                        <div class="card" >
+                            <div class="card-body" style="background-color: white;">
+                                <form action="" method="POST" enctype="multipart/form-data" onsubmit="agregarautentificacion(this)" class="formulario">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{ form.NombreCliente|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.Correo|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.Direccion|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.Telefono|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.imagenAutentificacion|as_crispy_field }}
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <input type="reset" value="CANCELAR" class="btn btn-secondary">
+                                        &nbsp;
+                                        <button type="submit" id="btnEnviar" class="btn btn-primary">ENVIAR</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {% elif group.name == 'ClientesAutentificados' %}
+                        <a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;">Cuenta Autentificada</a>
+                        {% endif %}
+                {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var nombreClienteInput = document.getElementById('id_NombreCliente');
+        nombreClienteInput.value = '{{ user.username }}';
+        nombreClienteInput.setAttribute('readonly', 'readonly');
+    });
+</script>
+{% endblock %}

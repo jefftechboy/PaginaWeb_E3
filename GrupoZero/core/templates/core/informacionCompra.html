@@ -1,0 +1,117 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+        <!-- Single Product Start -->
+        <div class="container-fluid py-5" style="margin-top: 0%; padding-top: 0%;color: white;">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6 col-xl-7">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            {% for aux in lista %}
+                            <h4 class="fw-bold mb-3">NOMBRE: {{ aux.nombre }}</h4>
+                            <p class="mb-3">Categoria: {{ aux.tipoObra }}</p>
+                            <p class="mb-3">Precio: ${{ aux.precio }}</p>
+                            <p class="mb-3">Pixeles: {{ aux.alto }} X {{ aux.largo }}</p>
+                            <div class="d-flex mb-4">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            {% endfor %}
+                            <div class="input-group quantity mb-5" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border" style="margin-right: 5px;" >
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border" style="margin-left: 5px;">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="#" class="btn border btn-success rounded-pill px-3 text-white" style="background-color: purple;"><i class="fa fa-shopping-bag me-2"></i>Añadir al carrito</a>
+                        </div>
+                        <div class="col-lg-12">
+                            <nav>
+                                <div class="nav nav-tabs mb-3" style="width:650px">
+                                    <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
+                                        id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                                        aria-controls="nav-about" aria-selected="true">DESCRIPCION</button>
+                                    <button class="nav-link border-white border-bottom-0" type="button" role="tab"
+                                        id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
+                                        aria-controls="nav-mission" aria-selected="false">Reseñas</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content mb-5" style="width: 650px;">
+                                <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                    <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc. 
+                                        Susp endisse ultricies nisi vel quam suscipit </p>
+                                    <p>Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish filefish Antarctic 
+                                        icefish goldeye aholehole trumpetfish pilot fish airbreathing catfish, electric ray sweeper.</p>
+                                </div>
+                                <!-- RESEÑA-->
+                                <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
+                                            <div class="d-flex justify-content-between">
+                                                <h5>Jason Smith</h5>
+                                                <div class="d-flex mb-3">
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic 
+                                                words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
+                                            <div class="d-flex justify-content-between">
+                                                <h5>Sam Peters</h5>
+                                                <div class="d-flex mb-3">
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p class="text-white">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic 
+                                                words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="nav-vision" role="tabpanel">
+                                    <p class="text-white">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
+                                        amet diam et eos labore. 3</p>
+                                    <p class="mb-0">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore.
+                                        Clita erat ipsum et lorem et sit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-5">
+                    <!-- Imagen -->
+                    <div class="text-center text-lg-end" style="margin-right: 50px;"> <!-- Esta clase alinea el contenido a la derecha en pantallas grandes -->
+                        {% for aux in lista %}
+                            <img src="{% get_media_prefix %}{{ aux.imagen }} " style="max-width: 400px;max-height: 900px;"> <!-- La clase img-fluid hace que la imagen sea responsiva -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Product End -->
+{% endblock %}
+
+
+

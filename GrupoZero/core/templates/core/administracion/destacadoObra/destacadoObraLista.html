@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+{% block js %}
+    <script>
+        function eliminarObra(id){
+            Swal.fire({
+                title: "DESE ELIMINAR ESTE ESTADO DE OBRA",
+                confirmButtonText: "ELIMINAR",
+                showCancelButton: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/agregarCompra/eliminarCompra/" + id + "/"
+                }
+            });
+        }
+    </script>
+
+{% endblock %}
+
+
+
+
+<h1 style="text-align: center;margin-top: 60px;">LISTADO ESTADOS DESTACADOS</h1>
+<div class="container-fluid" style="margin-top: 50px; color: white; margin-bottom: 50px;">
+    <div class="row" style="text-align: center; margin-bottom: 30px;">
+        <div class="col-4">
+            Descripcion
+        </div>
+        <div class="col-8" style="text-align: center;" >
+            <p style="padding-left: 100px;">ADMINISTRACION</p>
+        </div>
+    </div>
+    {% for aux in entity %}
+    <div class="row" style="text-align: center;">
+        <div class="col-4">
+            {{ aux.descripcion }}
+        </div>
+        <div class="col-8" style="padding-left: 90px;">
+            <button class="btn btn-warning">
+                <a href="{% url 'actualizarEstadoDestacado' aux.id %}"  style="color: white;">MODIFICAR</a>
+            </button>
+            <button class="btn btn-danger" style="margin-left: 90px;">
+                <a href="#" onclick="eliminarObra('{{ aux.id }}')"  style="color: white;">ELIMINAR</a>
+            </button>
+        </div>
+    </div>
+
+    <br>
+    {% endfor %}
+    <div>
+        {% include 'core/paginator.html' %}
+    </div>
+</div>
+
+{% endblock %}

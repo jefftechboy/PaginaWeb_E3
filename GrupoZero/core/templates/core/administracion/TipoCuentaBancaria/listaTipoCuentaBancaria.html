@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+
+{% block js %}
+    <script>
+        function eliminarTipoCuenta(id){
+            Swal.fire({
+                title: "¿ DESEA ELIMINAR TIPO DE CUENTA BANCARIA ?",
+                confirmButtonText: "ELIMINAR",
+                showCancelButton: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/agregarTipoCuentas/eliminarTipoCuentas/" + id + "/"
+                }
+            });
+        }
+    </script>
+
+{% endblock %}
+
+
+<h1 style="text-align: center; margin-top: 60px;color: white;">LISTAS DE TIPOS CUENTAS BANCOS</h1>
+
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="table-container">
+        <table class="table" style="background-color: white;">
+            <thead>
+                <tr style="border-bottom: 1px solid #000000; text-align: center;">
+                    <th style="padding: 8px;">CUENTAS</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for aux in entity %}
+                <tr style="text-align: center;">
+                    <td>{{ aux.NombreCuenta }}</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a href="{% url 'actualizarTipoCuentas' aux.id %}">
+                                <button class="btn btn-warning">
+                                    <i class="fas fa-edit"></i> Modificar
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" onclick="eliminarTipoCuenta('{{ aux.id }}')">
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            {% include 'core/paginator.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}
